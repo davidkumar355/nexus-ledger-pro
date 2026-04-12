@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════════
+   NEXUS LEDGER PRO — Neo-Brutalist Design System
+   ════════════════════════════════════════════════ */
+
+@theme {
+  /* Canvas */
+  --color-canvas: #FDFDFD;
+  --color-ink: #000000;
+
+  /* Accent palette */
+  --color-success: #00FF66;
+  --color-danger: #FF3D00;
+  --color-warning: #FFD600;
+
+  /* Brutalist shadows */
+  --shadow-brutal: 6px 6px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-sm: 3px 3px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-lg: 8px 8px 0px 0px rgba(0,0,0,1);
+
+  /* Border */
+  --border-brutal: 3px solid #000000;
+
+  /* Typography */
+  --font-sans: 'Inter', 'Geist Sans', system-ui, sans-serif;
+
+  /* Spacing grid — 8px base */
+  --spacing-grid: 8px;
+}
+
+/* ── Base reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: #FDFDFD;
+}
+
+body {
+  background-color: #FDFDFD;
+  color: #000000;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Utility: Brutalist card ── */
+.card-brutal {
+  border: 3px solid #000000;
+  box-shadow: var(--shadow-brutal);
+  background-color: #FDFDFD;
+}
+
+.card-brutal-sm {
+  border: 3px solid #000000;
+  box-shadow: var(--shadow-brutal-sm);
+  background-color: #FDFDFD;
+}
+
+/* ── Utility: Brutalist button base ── */
+.btn-brutal {
+  border: 3px solid #000000;
+  box-shadow: var(--shadow-brutal-sm);
+  font-weight: 700;
+  transition: box-shadow 80ms ease, transform 80ms ease;
+  cursor: pointer;
+}
+
+.btn-brutal:hover {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.btn-brutal:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+/* ── Utility: Brutalist input ── */
+.input-brutal {
+  border: 3px solid #000000;
+  background-color: #FDFDFD;
+  font-weight: 600;
+  outline: none;
+  transition: box-shadow 80ms ease;
+}
+
+.input-brutal:focus {
+  box-shadow: var(--shadow-brutal-sm);
+}
+
