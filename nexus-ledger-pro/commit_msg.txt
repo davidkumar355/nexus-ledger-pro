@@ -1,9 +1,0 @@
-feat phase-1 scaffold complete
-
-- Next.js 16 with TypeScript, Tailwind v4, App Router
-- Neo-Brutalist design system in globals.css
-- Supabase Auth with Google OAuth via proxy.ts
-- Login, access-denied, auth callback pages
-- Nav component and authenticated app layout
-- INR currency formatter
-- Build passes cleanly
