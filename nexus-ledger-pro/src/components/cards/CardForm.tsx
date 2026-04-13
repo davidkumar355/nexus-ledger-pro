@@ -40,9 +40,9 @@ export default function CardForm({ initialData, onClose }: CardFormProps) {
         await createCard(payload)
       }
       onClose()
-    } catch (err) {
+    } catch (err: any) {
       console.error(err)
-      alert(isEditing ? 'Failed to update card' : 'Failed to create card')
+      alert((isEditing ? 'Failed to update card: ' : 'Failed to create card: ') + (err.message || 'Unknown error'))
     } finally {
       setLoading(false)
     }
