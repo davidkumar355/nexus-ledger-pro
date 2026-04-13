@@ -34,11 +34,18 @@ export default function CardForm({ initialData, onClose }: CardFormProps) {
     }
 
     try {
+      let result;
       if (isEditing) {
-        await updateCard(initialData.id, payload)
+        result = await updateCard(initialData.id, payload)
       } else {
-        await createCard(payload)
+        result = await createCard(payload)
       }
+      
+      if (result && result.error) {
+        alert((isEditing ? 'Failed to update card: ' : 'Failed to create card: ') + result.error)
+        return
+      }
+      
       onClose()
     } catch (err: any) {
       console.error(err)

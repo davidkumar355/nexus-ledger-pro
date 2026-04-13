@@ -36,7 +36,7 @@ export async function getCards() {
 export async function createCard(data: { name: string, total_limit: number, spent: number, reset_day: number }) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) throw new Error('Unauthorized')
+  if (!user) return { error: 'Unauthorized' }
 
   const { error } = await supabase
     .from('credit_cards')
@@ -50,15 +50,16 @@ export async function createCard(data: { name: string, total_limit: number, spen
       }
     ])
 
-  if (error) throw new Error(error.message)
+  if (error) return { error: error.message }
   
   revalidatePath('/cards')
+  return { success: true }
 }
 
 export async function updateCard(id: string, data: Partial<{ name: string, total_limit: number, spent: number, reset_day: number }>) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) throw new Error('Unauthorized')
+  if (!user) return { error: 'Unauthorized' }
 
   const { error } = await supabase
     .from('credit_cards')
@@ -66,9 +67,10 @@ export async function updateCard(id: string, data: Partial<{ name: string, total
     .eq('id', id)
     .eq('user_id', user.id)
 
-  if (error) throw new Error(error.message)
+  if (error) return { error: error.message }
   
   revalidatePath('/cards')
+  return { success: true }
 }
 
 export async function deleteCard(id: string) {
